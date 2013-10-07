@@ -11,14 +11,26 @@
 	$blas.map(function(e,i){
 		e.addEventListener("play",function(){
 			status[i] = true;
-			console.log("play");
 		});
 		e.addEventListener("ended",function(){
 			status[i] = false;
-			console.log("ended");
 		});
 	});
 
+	function bla() {
+		//status.
+	}
 
+	window.addEventListener("load",function(){
+		var $buttons = document.querySelectorAll("button");
+		for (var i=0; i<$buttons.length; i++) {
+			$buttons[i].addEventListener("click",function(){
+				var track = this.getAttribute("data-track");
+				$blas[track].play();
+			});
+		}
+
+		window.setInterval(bla,250);
+	})
 
 })();
